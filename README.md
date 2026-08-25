@@ -6,6 +6,5 @@
 • Cómo Compilar y Ejecutar: Instrucciones básicas para que cualquier persona
 (incluyéndote) pueda clonar el repositorio y correr el juego.
 • Estado Actual del Proyecto: Configuración inicial y estructura del proyecto.
-• Enlace a la Wiki del Proyecto (Propuesta Detallada):[Ver la Propuesta Completa del Proyecto
-
-aquí](https://github.com/garciaalexiset352026-source/Juego-Apocaba/wiki/Propuesta-Del-Proyecto-%E2%80%90-APOCABA)
+• Enlace a la Wiki del Proyecto (Propuesta Detallada):
+[Ver la Propuesta Completa del Proyecto aquí](https://github.com/garciaalexiset352026-source/Juego-Apocaba/wiki/Propuesta-Del-Proyecto-%E2%80%90-APOCABA)
