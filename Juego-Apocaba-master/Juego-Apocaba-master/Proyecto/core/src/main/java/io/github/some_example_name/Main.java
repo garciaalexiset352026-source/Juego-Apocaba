@@ -2,7 +2,7 @@ package io.github.some_example_name;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -10,27 +10,19 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import io.github.some_example_name.apocaba.player.Jugador;
 
 public class Main extends ApplicationAdapter {
-
+	private Texture fondo;
     private SpriteBatch batch;
     private Jugador jugador;
-    private Texture piso;
 
     @Override
     public void create() {
 
         batch = new SpriteBatch();
 
+        fondo = new Texture("Fondos/fondo.jpg");
+
         jugador = new Jugador();
-
-        // Creamos una imagen pequeña para usar como piso
-        Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
-        pixmap.setColor(0.3f, 0.3f, 0.3f, 1);
-        pixmap.fill();
-
-        piso = new Texture(pixmap);
-        pixmap.dispose();
     }
-
     @Override
     public void render() {
 
@@ -42,12 +34,8 @@ public class Main extends ApplicationAdapter {
 
         batch.begin();
 
-        // Dibujar piso
-        batch.draw(piso, 0, 80, 1280, 40);
-        // Dibujar plataforma
-        batch.draw(piso, 200, 150, 200, 20);
+        batch.draw(fondo, 0, 0, 1280, 720);
 
-        // Dibujar jugador
         jugador.dibujar(batch);
 
         batch.end();
@@ -57,7 +45,7 @@ public class Main extends ApplicationAdapter {
     public void dispose() {
 
         batch.dispose();
-        piso.dispose();
+        fondo.dispose();
         jugador.dispose();
     }
 }

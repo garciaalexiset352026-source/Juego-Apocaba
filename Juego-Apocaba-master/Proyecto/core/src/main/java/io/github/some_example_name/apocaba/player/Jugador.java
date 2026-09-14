@@ -8,65 +8,137 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Jugador {
 
     private Texture textura;
-    
-    private float ancho = 80;
-    private float alto = 100;
-    
-    private float velocidadSalto = 500;
-    private float velocidadVertical = 0;
 
-    private float gravedad = -1200;
-
-    private boolean enSuelo = true;
     private float x;
     private float y;
 
+    // Movimiento
     private float velocidad = 250;
+
+    // Salto y gravedad
+    private float velocidadY = 0;
+    private float gravedad = -1000;
+    private float fuerzaSalto = 500;
+
+    // Piso
+    private float suelo = 120;
+    private boolean enSuelo = true;
+
+    // Tamaño aproximado del jugador
+    private float ancho = 128;
+    private float alto = 128;
+
+    // Plataforma
+    private float plataformaX = 200;
+    private float plataformaY = 150;
+    private float plataformaAncho = 200;
+    private float plataformaAlto = 20;
 
     public Jugador() {
 
-        textura = new Texture("Personaje/little-man-1.png");
+        textura = new Texture("libgdx.png");
 
         x = 100;
-        y = 100;
+        y = suelo;
     }
 
     public void actualizar(float delta) {
 
-        // Movimiento hacia la izquierda
+        // =========================
+        // MOVIMIENTO
+        // =========================
+
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
             x -= velocidad * delta;
         }
 
-        // Movimiento hacia la derecha
         if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             x += velocidad * delta;
         }
 
-        // Salto
+
+        // =========================
+        // SALTO
+        // =========================
+
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) && enSuelo) {
-            velocidadVertical = velocidadSalto;
+
+            velocidadY = fuerzaSalto;
             enSuelo = false;
         }
 
-        // Gravedad
-        velocidadVertical += gravedad * delta;
 
-        // Movimiento vertical
-        y += velocidadVertical * delta;
+        // Guardamos la posición anterior
+        float yAnterior = y;
 
-        // Suelo
-        if (y <= 100) {
-            y = 100;
-            velocidadVertical = 0;
+
+        // =========================
+        // GRAVEDAD
+        // =========================
+
+        velocidadY += gravedad * delta;
+
+        y += velocidadY * delta;
+
+
+        // =========================
+        // COLISIÓN CON EL PISO
+        // =========================
+
+        if (y <= suelo) {
+
+            y = suelo;
+            velocidadY = 0;
+            enSuelo = true;
+        }
+
+
+        // =========================
+        // COLISIÓN CON PLATAFORMA
+        // =========================
+
+        float parteSuperiorPlataforma = plataformaY + plataformaAlto;
+
+        boolean estaCayendo = velocidadY <= 0;
+
+        boolean estaSobreLaPlataforma =
+                x + ancho > plataformaX &&
+                x < plataformaX + plataformaAncho;
+
+        boolean vieneDesdeArriba =
+                yAnterior >= parteSuperiorPlataforma;
+
+        boolean llegoALaPlataforma =
+                y <= parteSuperiorPlataforma;
+
+
+        if (estaCayendo &&
+            estaSobreLaPlataforma &&
+            vieneDesdeArriba &&
+            llegoALaPlataforma) {
+
+            y = parteSuperiorPlataforma;
+
+            velocidadY = 0;
+
             enSuelo = true;
         }
     }
+
+
+    // =========================
+    // DIBUJAR PERSONAJE
+    // =========================
 
     public void dibujar(SpriteBatch batch) {
 
         batch.draw(textura, x, y, ancho, alto);
     }
+
+
+    // =========================
+    // LIBERAR RECURSOS
+    // =========================
 
     public void dispose() {
 
