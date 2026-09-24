@@ -1,0 +1,8 @@
+Fondos/LVL1_casa-1.png.png
+Fondos/LVL1_casa-2.png.png
+Fondos/New Piskel-2.png.png
+Fondos/fondo.jpg
+Fondos/segundo-nivel-fuego.png
+Personaje/PJ prueba.png
+Personaje/little-man-1.png
+libgdx.png
