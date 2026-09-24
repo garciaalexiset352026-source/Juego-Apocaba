@@ -1,3 +1,0 @@
-Fondos/fondo.jpg
-Personaje/little-man-1.png
-libgdx.png
