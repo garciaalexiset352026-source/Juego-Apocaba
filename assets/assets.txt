@@ -1,0 +1,31 @@
+Fondos/Edificio ruinoso de cuatro plantas.png
+Fondos/LVL1_casa-1.png.png
+Fondos/LVL1_casa-2.png.png
+Fondos/New Piskel-2.png.png
+Fondos/Nivel 1 Apocaba.png
+Fondos/Nivel 2 Apocaba.png
+Fondos/fondo.jpg
+Fondos/letras-menu.png
+Fondos/menu.png
+Fondos/segundo-nivel-fuego.png
+Personaje/Oscar-caminar.png
+Personaje/Oscar-quieto.png
+Personaje/Oscar-salto.png
+Personaje/PJ prueba.png
+Personaje/Pistola.png
+Personaje/Rifle.png
+Personaje/Trabuco.png
+Personaje/Zombie-fisura-ataque.png
+Personaje/Zombie-fisura-caminar.png
+Personaje/Zombie-fisura-quieto.png
+Personaje/little-man-1.png
+Personaje/zombie_ataque.png
+Personaje/zombie_caminar.png
+Personaje/zombie_idle.png
+Plataformas/auto_amarillo.png
+Plataformas/auto_blanco.png
+Plataformas/auto_rojo.png
+Plataformas/objetos-nivel2.png
+libgdx.png
+moneda-juego-2.png
+moneda-juego.png
